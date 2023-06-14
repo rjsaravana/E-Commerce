@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ecom.css">
+    <script src="ecomjs.js"></script>
+    <title>ECommerce</title>
+</head>
+<body>
+        <h1 >NEW BUSINESS</h1>
+        <p id="firstname"></p>
+        <form id="formreset">
+        <div class="row">
+            <div class="column">
+                <label class="content column-top">Name</label><br>
+                <input type="text" id="name" name="name" value="" placeholder="Name.."><br>
+                <div  id="name_error"></div></div>
+            <div class="column">
+                <label class="content column-top">Email Id</label><br>  
+                <input type="text" id="email" name="email" value="" placeholder="Email.."><br>
+                <div  id="email_error"></div></div>
+            <div class="column">
+                <label class="content column-top">Phone Number</label><br>  
+                <input type="tel" id="phone" name="phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" value="" placeholder="Phone No.." maxlength="10"><br>
+                <div  id="phonenum_error"></div></div>
+        </div>
+        <div class="row">
+            <div class="column column-top">
+                <label class="content">Website</label><br>  
+                <input type="text" id="website" name="website" value="" placeholder="Website.."><br>
+                <div  id="web_error"></div></div>
+            <div class="column column-top">
+                <label class="content">Contact Name</label><br> 
+                <input type="text" id="contactname" name="contactname" value="" placeholder="Contact Name..">
+                <div  id="contname_error"></div></div>
+            <div class="column column-top">
+                <label class="content">Contact Phone</label><br>
+                <input type="tel" id="contctphone" name="contctphone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="10" value="" placeholder="Contct No.."><br>
+                <div  id="contno_error"></div></div>
+        </div>  
+
+            <div class="row">
+            <div class="column column-top">
+                <label class="content">Contact Email</label><br>  
+                <input type="text" id="contctemail" name="contctemail" value="" placeholder="Email.."><br>
+                <div  id="contmail_error"></div></div>
+            <div class="column column-top">
+                <label class="content">Category</label><br>
+                <select name="epurcate" id="epurcate" multiple>
+                <option value="Clothes" id="epurcate">Clothes</option>
+                <option value="Toys" id="epurcate">Toys</option>
+                <option value="Groceries" id="epurcate">Groceries</option>
+                <option value="Electronics" id="epurcate">Electronics</option>
+                <option value="Digital" id="epurcate">Digital</option>
+                </select><br>
+                <div  id="cate_error"></div></div>
+            <div class="column column-top" >
+                <label class="content">Types</label><br>  
+                <input type="radio" id="sm" value="Small Business" name="type">
+                <label for="sm">Small Business</label><br>
+                <input type="radio" id="ep" value="Enterprise" name="type">
+                <label for="ep">Enterprise</label><br>
+                <input type="radio" id="epr" value="Entrepreneur" name="type">
+                <label for="epr">Entrepreneur</label><br>
+                <div  id="type_error"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column column-top">
+                <label class="content">Active Date</label><br>
+                <input type="date" id="myDate" name="date"><br> 
+                <div  id="adate_error"></div></div>
+            <div class="column column-top">
+                <label class="content">Comission Percentage</label><br>
+                <input type="number" id="cp" name="cp" class="cp" min="0" max="100" onkeyup="check_cp()" placeholder="Comission Percentage"><br>
+                <div  id="comper_error"></div></div>
+            <div class="column column-top">
+                    <label class="content">Notes</label><br> 
+                    <textarea id="notes" name="notes" value="" rows="8" cols="25"></textarea><br>
+                    <div  id="note_error"></div></div>
+        </div>
+
+        <div>   
+            <img src="logo.jpg" class="logo-img" alt="Logo" width="15%" height="100">
+        </div>
+
+        <div class="row">
+            <div class="column column-top">
+                <label class="content">Critical Account</label><br>
+                <input type="checkbox" name="ca[]" id="ca" value="Yes">
+                <label for="ca" class="ca">To represent whether the account is critical so that we can provide <br> extra care in case of any queries</label><br>
+                <div  id="ca_error"></div></div>
+            
+            <div class="column column-top itemForm">
+                <label class="content">Payment Options</label><br>
+                <input type="checkbox"  id="cod" value="Cash On Delievery" name="checkbox_nm[]" class="checkbox_id">
+                <label for="cod">Cash On Delievery</label><br>
+                <input type="checkbox"  id="upi" value="UPI" name="checkbox_nm[]" class="checkbox_id"> 
+                <label for="upi">UPI</label><br>
+                <input type="checkbox"  id="cardpay" value="Card Payment" name="checkbox_nm[]" class="checkbox_id">
+                <label for="cardpay">Card Payment</label><br>
+                <div  id="pay_error"></div>
+            </div>
+        </div>
+
+        <div class="btn">
+            <button type="button"  class="button1" id="button1" onclick=myFunction()>Submit</button>
+            <button type="button" class="button2" id="button2" onclick=btn2()>Reset Form</button>
+        </div>  
+</form>
+       
+        <div class="tablescroll">
+        <table class="list">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Email Id</th>
+                    <th>Phone Number</th>
+                    <th>Website</th>
+                    <th>Contact Name</th>
+                    <th>Contact Phone</th>
+                    <th>Contact Email</th>
+                    <th>Category</th>
+                    <th>Types</th>
+                    <th>Active Date</th>
+                    <th>Comission Percentage</th>
+                    <th>Notes</th>
+                    <th>Critical Account</th>
+                    <th>Payment Options</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="datadisplay"></tbody> 
+        </table>
+        </div>
+    </div>
+</body>
+</html>
